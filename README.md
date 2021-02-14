@@ -1,6 +1,6 @@
-## This is a little project which helps me understanding Hooks :hook: and their use in in React better.  
+## This is a little project which helps me  better understandHooks :arrow_heading_up: and their use in in React.  
 
-
+<hr/>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

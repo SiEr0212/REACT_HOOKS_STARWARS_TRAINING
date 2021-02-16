@@ -66,6 +66,11 @@ const Character = (props) => {
     }
   }, [props.selectedChar]);
 
+  useEffect(() => {
+    return () => {
+      console.log('component did unmount');
+    }
+  }, []);
   /*   componentWillUnmount() {
     console.log('Too soon...');
   } */

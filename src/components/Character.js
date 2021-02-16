@@ -50,7 +50,7 @@ const Character = (props) => {
 
   /* componentDidUpdate(prevProps) {
     console.log('Component did update');
-    if (prevProps.selectedChar !== this.props.selectedChar) {
+    if (prevProps.selectedChar !== props.selectedChar) {
       this.fetchData();
     }
   } */
@@ -58,6 +58,10 @@ const Character = (props) => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [props.selectedChar]);
 
   /*   componentWillUnmount() {
     console.log('Too soon...');

@@ -55,12 +55,15 @@ const Character = (props) => {
     }
   } */
 
-  useEffect(() => {
+/*   useEffect(() => {
     fetchData();
-  }, []);
+  }, []); */
 
   useEffect(() => {
     fetchData();
+    return () => {
+      console.log('Cleaning up...');
+    }
   }, [props.selectedChar]);
 
   /*   componentWillUnmount() {

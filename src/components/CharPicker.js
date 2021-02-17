@@ -1,61 +1,15 @@
 import React, { useState, useEffect } from "react";
 
+import { useHttp } from '../hooks/http';
+
 import "./CharPicker.css";
 
 const CharPicker = (props) => {
   const [loadedChars, setLoadedChars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [useHttp, setUseHttp] = useState(true)
 
-  useEffect(() => {
-    console.log('useEffect runs');
-    setIsLoading(true);
-    fetch("https://swapi.dev/api/people")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch.");
-        }
-        return response.json();
-      })
-      .then((charData) => {
-        const selectedCharacters = charData.results.slice(0, 5);
-        setIsLoading(false);
-        setLoadedChars(
-          selectedCharacters.map((char, index) => ({
-            name: char.name,
-            id: index + 1,
-          }))
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsLoading(false);
-      }); 
-  }, []);
-
-  /*componentDidMount() {
-    this.setState({ isLoading: true });
-    fetch('https://swapi.dev/api/people')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch.');
-        }
-        return response.json();
-      })
-      .then(charData => {
-        const selectedCharacters = charData.results.slice(0, 5);
-        this.setState({
-          characters: selectedCharacters.map((char, index) => ({
-            name: char.name,
-            id: index + 1
-          })),
-          isLoading: false
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-*/
+useHttp("https://swapi.dev/api/people", []);
 
   let content = <p>Loading characters...</p>;
 

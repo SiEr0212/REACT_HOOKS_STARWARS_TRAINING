@@ -6,6 +6,8 @@ const Character = (props) => {
   const [loadedCharacter, setLoadedCharacter] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log("Rendering...");
+
   /*   shouldComponentUpdate(nextProps, nextState) {
     console.log('shouldComponentUpdate');
     return (
@@ -55,21 +57,21 @@ const Character = (props) => {
     }
   } */
 
-/*   useEffect(() => {
+  /*   useEffect(() => {
     fetchData();
   }, []); */
 
   useEffect(() => {
     fetchData();
     return () => {
-      console.log('Cleaning up...');
-    }
+      console.log("Cleaning up...");
+    };
   }, [props.selectedChar]);
 
   useEffect(() => {
     return () => {
-      console.log('component did unmount');
-    }
+      console.log("component did unmount");
+    };
   }, []);
   /*   componentWillUnmount() {
     console.log('Too soon...');
@@ -94,4 +96,4 @@ const Character = (props) => {
   return content;
 };
 
-export default Character;
+export default React.memo(Character);

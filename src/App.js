@@ -30,7 +30,7 @@ const App = props => {
     setDestroyed(true);
   };
 
- 
+
     let content = (
       <React.Fragment>
         <CharPicker
